@@ -14,5 +14,5 @@ For the time being I have set aside 2 12GB GPUs to work in parallel for that exp
 Intermediate snapshots I will put to the following folder for anyone who is interested for download (every 10 epochs): https://drive.google.com/open?id=0B1qLpHDbczM2bTZyeHc0TmNoanM. If I am losing my patience along the way others might continue with that experiment :-).
 
 Currently I am after epoch 10 and validation error and training loss have been developing as follows:
-
+![Alt text](./inception_resnetv2_10epochs.png?raw=true "Current Validation Error / Training Loss")
 
