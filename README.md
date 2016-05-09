@@ -13,6 +13,14 @@ For the time being I have set aside 2 12GB GPUs to work in parallel for that exp
 
 Intermediate snapshots I will put to the following folder for anyone who is interested for download (every 10 epochs): https://drive.google.com/open?id=0B1qLpHDbczM2bTZyeHc0TmNoanM. If I am losing my patience along the way others might continue with that experiment :-).
 
-Currently I am after epoch 10 and validation error and training loss have been developing as follows:
-![Alt text](./inception_resnetv2_10epochs.png?raw=true "Current Validation Error / Training Loss")
+Currently I am right after epoch 25 and validation error and training loss have been developing as follows:
+![Alt text](./inception_resnetv2_25epochs.png?raw=true "Current Validation Error / Training Loss")
+
+A closer look at the validation error of the last 10 epochs reveals that there has been no noticeable change in validation error over the last 10 epochs. ![Alt text](./inception_resnetv2_15-25epochs.png?raw=true "Validation Error / Training Loss of last 10 epochs")
+
+Obviously validation accuracy is very much different from what is shown in http://arxiv.org/abs/1602.07261 (e.g. their Figure 24, Top-5 validation error at 20 epochs showing ~10% error as compared with ~28% in my training). I have strictly adhered to the learning rate schedule described in the paper (learning rate @ start of training: 0.045 and reducing learning rate every 2 epochs by factor of 0.94). In one additional experiment I have lowered the learning rate manually after 10 epochs by multiplying it with 0.2 which resulted in an improvement of Top-1 / Top-5 validation accuracy of 2.5% / 3%.
+
+As it does not seem to be possible to directly reproduce results shown in http://arxiv.org/abs/1602.07261 with my setup I will go back and re-analyze my setup first. Also I might consider investigating the architecture on smaller images / different image set (e.g. CIFAR 100). 
+
+
 
