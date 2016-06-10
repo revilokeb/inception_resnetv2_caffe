@@ -20,7 +20,12 @@ A closer look at the validation error of the last 10 epochs reveals that there h
 
 Obviously validation accuracy is very much different from what is shown in http://arxiv.org/abs/1602.07261 (e.g. their Figure 24, Top-5 validation error at 20 epochs showing ~10% error as compared with ~28% in my training). I have strictly adhered to the learning rate schedule described in the paper (learning rate @ start of training: 0.045 and reducing learning rate every 2 epochs by factor of 0.94). In one additional experiment I have lowered the learning rate manually after 10 epochs by multiplying it with 0.2 which resulted in an improvement of Top-1 / Top-5 validation accuracy of 2.5% / 3%.
 
-As it does not seem to be possible to directly reproduce results shown in http://arxiv.org/abs/1602.07261 with my setup I will go back and re-analyze my setup first. Also I might consider investigating the architecture on smaller images / different image set (e.g. CIFAR 100). 
+As it does not seem to be possible to directly reproduce results shown in http://arxiv.org/abs/1602.07261 with my setup I will go back and re-analyze my setup first. Also I might consider investigating the architecture on smaller images / different image set (e.g. CIFAR 100). In the meantime I have run various experiments so far unfortunately without being able to replicate the results nowhere near. 
+
+However I have learnt that there has now been a succesful re-training of inception-resnet-2 in torch https://github.com/lim0606/torch-inception-resnet-v2. Based on their detailed description my likely mistake was to not scale the last layer before the average pooling:
+"Also we found that if the number of filters exceeded 1000, the residual variants started to exhibit instabilities and the network has just “died” early in the training, meaning that the last layer before the average pooling started to produce only zeros after a few tens of thousands of iterations." (quote from http://arxiv.org/abs/1602.07261, 3.3 Scaling of residuals)
+
+As soon as I have some time and spare computational ressources I will re-check if that really was the culprit hindering the learning.
 
 
 
