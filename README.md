@@ -25,7 +25,9 @@ As it does not seem to be possible to directly reproduce results shown in http:/
 However I have learnt that there has now been a succesful re-training of inception-resnet-2 in torch https://github.com/lim0606/torch-inception-resnet-v2. Based on their detailed description my likely mistake was to not scale the last layer before the average pooling:
 "Also we found that if the number of filters exceeded 1000, the residual variants started to exhibit instabilities and the network has just “died” early in the training, meaning that the last layer before the average pooling started to produce only zeros after a few tens of thousands of iterations." (quote from http://arxiv.org/abs/1602.07261, 3.3 Scaling of residuals)
 
-As soon as I have some time and spare computational ressources I will re-check if that really was the culprit hindering the learning.
+~~As soon as I have some time and spare computational ressources I will re-check if that really was the culprit hindering the learning.~~
+
+Besides the torch re-implementation Google has now made public the weights of inception-resnet-2 in tensorflow: see https://research.googleblog.com/2016/08/improving-inception-and-image.html. As my focus has moved a bit on towards deep reinforcement learning, secondly I am anyway using Tensorflow more and more often and lastly since those Imagenet simulations have been binding too many of my modest GPU ressources I have decided to not continue trying to learn the inception-resnet-2 with Caffe.       
 
 
 
